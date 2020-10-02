@@ -1,6 +1,5 @@
-import BoardView from '@/components/BoardView.vue'
-// import SignIn from '@/views/SignIn'
-import SignUp from '@/components/Signup.vue'
+import SignUp from '@/components/templates/Signup.vue'
+import BoardView from '@/components/templates/BoardView.vue'
 
 export default [{
   path: '/',
