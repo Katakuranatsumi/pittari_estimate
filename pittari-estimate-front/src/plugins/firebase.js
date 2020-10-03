@@ -8,13 +8,13 @@ import * as firebase from "firebase/app";
 
 // Firebaseの設定
 const firebaseConfig = {
- apiKey: process.env.API_KEY,
- authDomain: process.env.AUTH_DOMAIN,
- databaseURL: process.env.DATABASE_URL,
- projectId: process.env.PROJECT_ID,
- storageBucket: process.env.STORAGE_BUCKET,
- messagingSenderId: process.env.MESSAGING_SENDER_ID,
- appId: process.env.APP_ID,
+  apiKey: "AIzaSyDlw76UiccEtIfesdW0ZXSWHQSPb8h9u5I",
+  authDomain: "pittari-estimate.firebaseapp.com",
+  databaseURL: "https://pittari-estimate.firebaseio.com",
+  projectId: "pittari-estimate",
+  storageBucket: "pittari-estimate.appspot.com",
+  messagingSenderId: "689572499147",
+  appId: "1:689572499147:web:618be386a7a838ea09154e"
 };
 
 // Initialize Firebase
