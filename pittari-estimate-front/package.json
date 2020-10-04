@@ -9,9 +9,11 @@
     "dev-serve": "vue-cli-service serve --mode development"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "core-js": "^2.6.5",
     "firebase": "^7.21.1",
     "vue": "^2.6.10",
+    "vue-axios": "^2.1.5",
     "vue-router": "^3.4.5"
   },
   "devDependencies": {
