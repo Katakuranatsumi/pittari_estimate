@@ -1,7 +1,7 @@
 import SignUp from '@/components/templates/Signup.vue'
 import BoardView from '@/components/templates/BoardView.vue'
 import User from '@/components/templates/User.vue'
-import Task from '@/components/templates/Task.vue'
+import Tasks from '@/components/templates/Tasks.vue'
 
 export default [{
   path: '/',
@@ -14,5 +14,5 @@ export default [{
   component: User
 }, {
   path: '/tasks',
-  component: Task
+  component: Tasks
 }]
