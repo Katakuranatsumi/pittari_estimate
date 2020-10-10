@@ -1,5 +1,5 @@
 <template>
-  <div class="task">
+  <div class="tasks">
     <h2>タスク一覧</h2>
   </div>
 </template>
