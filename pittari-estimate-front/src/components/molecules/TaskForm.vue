@@ -16,10 +16,19 @@
         placeholder="例：Railsでログイン機能を実装する"
       >
     </div>
+    <div class="form-actions">
+      <Button
+        @click="handleClick"
+      >
+        タスク見積登録
+      </Button>
+    </div>
   </form>
 </template>
 
 <script>
+import axios from '@/plugins/axios'
+
 export default {
   name: 'TaskForm',
 
@@ -29,5 +38,22 @@ export default {
       detail: ''
     }
   },
+
+  methods: {
+    handleClick () {
+      this.$nextTick(() => {
+        const newTask = {
+          title: this.title,
+          detail: this.detail
+        }
+        axios.post('/tasks', newTask)
+          .then(() => {
+          })
+          .catch(err => {
+            this.error = err.message
+          })
+      })
+    }
+  }
 }
 </script>
