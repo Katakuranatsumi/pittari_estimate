@@ -5,6 +5,7 @@
       <input
         id="title"
         type="text"
+        v-model="title"
         required
         placeholder="例：ログイン機能の追加">
     </div>
@@ -13,6 +14,7 @@
       <input
         id="detail"
         type="text"
+        v-model="detail"
         placeholder="例：Railsでログイン機能を実装する"
       >
     </div>
@@ -48,6 +50,7 @@ export default {
         }
         axios.post('/tasks', newTask)
           .then(() => {
+            alert("タスク見積もりを作成しました")
           })
           .catch(err => {
             this.error = err.message
