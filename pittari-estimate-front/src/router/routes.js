@@ -17,6 +17,6 @@ export default [{
   path: '/tasks',
   component: Tasks
 }, {
-  path: '/tasks/new',
+  path: '/new',
   component: TaskFormView
 }]

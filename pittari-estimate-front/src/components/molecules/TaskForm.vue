@@ -50,6 +50,7 @@ export default {
         }
         axios.post('/tasks', newTask)
           .then(() => {
+            this.$router.push({ path: '/tasks' })
             alert("タスク見積もりを作成しました")
           })
           .catch(err => {
