@@ -3,6 +3,7 @@ import BoardView from '@/components/templates/BoardView.vue'
 import User from '@/components/templates/User.vue'
 import Tasks from '@/components/templates/Tasks.vue'
 import TaskFormView from '@/components/templates/TaskFormView.vue'
+import TaskDetailView from '@/components/templates/TaskDetailView.vue'
 
 export default [{
   path: '/',
@@ -19,4 +20,7 @@ export default [{
 }, {
   path: '/new',
   component: TaskFormView
+}, {
+  path: '/tasks/show',
+  component: TaskDetailView
 }]
