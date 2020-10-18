@@ -7,7 +7,7 @@
         <th>作成日時</th>
       </tr>
       <tr v-for="(task, index) in tasks" v-bind:key="task">
-        <td>{{ task["title"] }}</td>
+        <router-link :to="{ path: 'tasks/' + taskId[index] }">{{ task["title"] }}</router-link>
         <td>{{ createdTime[index] }}</td>
       </tr>
     </table>
@@ -34,6 +34,15 @@ export default {
         createdTimes.push(responseCreatedTime);
       }
       return createdTimes
+    },
+
+    taskId: function() {
+      let taskIds = [];
+      for (let i = 0, length = this.tasks.length; i < length; i++) {
+        const responseTaskId = this.tasks[i]["id"];
+        taskIds.push(responseTaskId);
+      }
+      return taskIds
     }
   },
 
