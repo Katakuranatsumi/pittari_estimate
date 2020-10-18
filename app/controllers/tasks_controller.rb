@@ -4,9 +4,6 @@ class TasksController < ApplicationController
     render json: tasks
   end
 
-  def new
-  end
-
   def create
     task = Task.new(task_params)
 
