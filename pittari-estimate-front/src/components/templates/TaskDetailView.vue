@@ -10,7 +10,7 @@ import axios from '@/plugins/axios'
 
 export default {
   name: 'TaskDetailView',
-  data: function () {
+  data: function() {
     return {
       task : null
     }
