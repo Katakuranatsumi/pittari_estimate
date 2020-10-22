@@ -72,7 +72,7 @@ export default {
     disableTaskCreateAciton: function () {
       // validを使用してログイン処理の可否を判別
       return !this.valid || this.progress
-    }
+    },
   },
 
   methods: {
@@ -91,8 +91,8 @@ export default {
             this.error = err.message
           })
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
