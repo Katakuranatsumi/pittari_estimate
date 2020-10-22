@@ -49,14 +49,14 @@ export default {
   },
 
   computed: {
-    validation () {
+    validation: function () {
       // titleとdetailのバリデーション
       return {
         title: { required: required(this.title) }
       }
     },
 
-    valid () {
+    valid: function () {
       const validation = this.validation
       const fields = Object.keys(validation)
       let valid = true
@@ -69,15 +69,15 @@ export default {
       return valid
     },
 
-    disableTaskCreateAciton () {
+    disableTaskCreateAciton: function () {
       // validを使用してログイン処理の可否を判別
       return !this.valid || this.progress
     }
   },
 
   methods: {
-    handleClick () {
-      this.$nextTick(() => {
+    handleClick: function () {
+      this.$nextTick(function () {
         const newTask = {
           title: this.title,
           detail: this.detail
