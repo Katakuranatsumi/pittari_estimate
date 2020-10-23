@@ -2,6 +2,8 @@
   <div class="task-detail">
     <h2>タスク見積もり詳細</h2>
     <div>タイトル： {{ task["title"] }}</div>
+    <div>作成日時：{{ createdTime }}</div>
+    <div>詳細：{{ task["detail"] }}</div>
   </div>
 </template>
 
@@ -16,6 +18,13 @@ export default {
     }
   },
 
+  computed: {
+    createdTime: function() {
+      const createdTime = new Date(this.task["created_at"]).toLocaleString();
+      return createdTime
+    },
+  },
+
   mounted() {
     axios.get('/tasks/' + this.$route.params.taskId)
       .then((response) => {
@@ -24,6 +33,6 @@ export default {
       .catch((err) => {
         this.error = err.message
       })
-  }
+  },
 }
 </script>
