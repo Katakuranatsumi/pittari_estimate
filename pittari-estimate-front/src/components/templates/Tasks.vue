@@ -10,9 +10,7 @@
       <tr v-for="(task, index) in tasks" v-bind:key="task">
         <router-link :to="{ path: 'tasks/' + taskId[index] }">{{ task["title"] }}</router-link>
         <td>{{ createdTime[index] }}</td>
-        <input
-          type="checkbox"
-        />
+        <VueCheckbox></VueCheckbox>
       </tr>
     </table>
   </div>
@@ -20,9 +18,14 @@
 
 <script>
 import axios from '@/plugins/axios';
+import VueCheckbox from '@/components/atoms/Checkbox'
 
 export default {
   name: 'Tasks',
+
+  components: {
+    VueCheckbox,
+  },
 
   data() {
     return {
