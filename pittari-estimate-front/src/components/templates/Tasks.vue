@@ -1,6 +1,7 @@
 <template>
   <div class="tasks">
     <h2>タスク見積もり一覧</h2>
+    <font-awesome-icon icon="trash-alt"></font-awesome-icon>
     <table>
       <tr>
         <th>タイトル</th>
@@ -9,13 +10,16 @@
       <tr v-for="(task, index) in tasks" v-bind:key="task">
         <router-link :to="{ path: 'tasks/' + taskId[index] }">{{ task["title"] }}</router-link>
         <td>{{ createdTime[index] }}</td>
+        <input
+          type="checkbox"
+        />
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-import axios from '@/plugins/axios'
+import axios from '@/plugins/axios';
 
 export default {
   name: 'Tasks',
