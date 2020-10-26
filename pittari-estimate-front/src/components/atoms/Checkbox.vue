@@ -21,12 +21,6 @@ export default {
       type: Boolean,
       default: null,
     },
-
-    value: {
-      required: false,
-      type: Boolean,
-      default: null,
-    },
   },
 
   computed: {
