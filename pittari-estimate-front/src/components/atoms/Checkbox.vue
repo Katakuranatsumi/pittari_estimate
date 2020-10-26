@@ -28,5 +28,13 @@ export default {
       default: null,
     },
   },
+
+  computed: {
+    // `type`に応じてクラスを動的に生成する
+    classes () {
+      const checkBoxClass = this.type === 'type' ? ('-' + this.type) : ''
+      return [`checkbox${checkBoxClass}`]
+    }
+  },
 }
 </script>
