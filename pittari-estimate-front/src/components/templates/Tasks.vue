@@ -7,7 +7,7 @@
         <th>タイトル</th>
         <th>作成日時</th>
       </tr>
-      <tr v-for="(task, index) in tasks" v-bind:key="task">
+      <tr v-for="(task, index) in tasks" v-bind:key="index">
         <router-link :to="{ path: 'tasks/' + taskId[index] }">{{ task["title"] }}</router-link>
         <td>{{ createdTime[index] }}</td>
         <vue-checkbox></vue-checkbox>
