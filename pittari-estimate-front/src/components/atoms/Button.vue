@@ -1,5 +1,6 @@
 <template>
   <button
+    :disabled="disabled"
     :class="classes"
     type="button"
     @click="handleClick"
@@ -10,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'VueButton',
 
   props: {
     type: {
