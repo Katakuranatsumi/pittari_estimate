@@ -23,22 +23,27 @@
       >
     </div>
     <div class="form-actions">
-      <Button
+      <vue-button
         :disabled="disableTaskCreateAciton"
         @click="handleClick"
       >
         タスク見積登録
-      </Button>
+      </vue-button>
     </div>
   </form>
 </template>
 
 <script>
 import axios from '@/plugins/axios'
+import VueButton from '@/components/atoms/Button'
 const required = val => !!val.trim()
 
 export default {
   name: 'TaskForm',
+
+  components: {
+    VueButton,
+  },
 
   data () {
     return {
