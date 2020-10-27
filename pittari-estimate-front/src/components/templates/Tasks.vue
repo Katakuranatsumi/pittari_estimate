@@ -1,7 +1,9 @@
 <template>
   <div class="tasks">
     <h2>タスク見積もり一覧</h2>
-    <vue-button>
+    <vue-button
+      :disabled="disableTaskDeleteAciton"
+    >
       <font-awesome-icon icon="trash-alt"/>
     </vue-button>
     <table>
@@ -14,8 +16,11 @@
         <td>{{ createdTime[index] }}</td>
         <vue-checkbox
           :id="index"
-          :value="index"
+          :value="task"
+          v-model="checkedTasks"
         />
+        <label :for="index"></label>
+        <span>CheckedTasks: {{ checkedTasks }}</span>
       </tr>
     </table>
   </div>
@@ -58,7 +63,15 @@ export default {
         taskIds.push(responseTaskId);
       }
       return taskIds
-    }
+    },
+
+    disableTaskDeleteAciton: function() {
+      if (this.checkedTasks.length !== 0) {
+        return false
+      } else {
+        return true
+      }
+    },
   },
 
   mounted() {
