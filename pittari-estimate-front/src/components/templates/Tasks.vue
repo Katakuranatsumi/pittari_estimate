@@ -1,7 +1,9 @@
 <template>
   <div class="tasks">
     <h2>タスク見積もり一覧</h2>
-    <font-awesome-icon icon="trash-alt"></font-awesome-icon>
+    <vue-button>
+      <font-awesome-icon icon="trash-alt"/>
+    </vue-button>
     <table>
       <tr>
         <th>タイトル</th>
@@ -10,7 +12,10 @@
       <tr v-for="(task, index) in tasks" v-bind:key="index">
         <router-link :to="{ path: 'tasks/' + taskId[index] }">{{ task["title"] }}</router-link>
         <td>{{ createdTime[index] }}</td>
-        <vue-checkbox></vue-checkbox>
+        <vue-checkbox
+          :id="index"
+          :value="index"
+        />
       </tr>
     </table>
   </div>
@@ -19,17 +24,20 @@
 <script>
 import axios from '@/plugins/axios';
 import VueCheckbox from '@/components/atoms/Checkbox'
+import VueButton from '@/components/atoms/Button'
 
 export default {
   name: 'Tasks',
 
   components: {
     VueCheckbox,
+    VueButton,
   },
 
   data() {
     return {
-      tasks: null
+      tasks: null,
+      checkedTasks: []
     }
   },
 
