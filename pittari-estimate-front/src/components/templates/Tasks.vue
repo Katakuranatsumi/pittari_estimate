@@ -86,8 +86,9 @@ export default {
   methods: {
     confirmDelete: function() {
       axios.delete('/tasks/' + this.checkedTasks[0]["id"])
-        .then(() => {
-          this.$swal('タスク見積もりを削除しました');
+        .then(async() => {
+          await this.$swal('タスク見積もりを削除しました');
+          this.$router.go({path: this.$router.currentRoute.path, force: true})
         })
         .catch((err) => {
           this.error = err.message;
