@@ -19,7 +19,8 @@
     "firebase": "^7.21.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
-    "vue-router": "^3.4.5"
+    "vue-router": "^3.4.5",
+    "vue-sweetalert2": "^4.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
