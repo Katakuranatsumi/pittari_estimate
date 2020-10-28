@@ -3,6 +3,7 @@
     <h2>タスク見積もり一覧</h2>
     <vue-button
       :disabled="disableTaskDeleteAciton"
+      @click="confirmDelete"
     >
       <font-awesome-icon icon="trash-alt"/>
     </vue-button>
@@ -75,11 +76,17 @@ export default {
   mounted() {
     axios.get('/tasks')
       .then((response) => {
-        this.tasks = response.data
+        this.tasks = response.data;
       })
       .catch((err) => {
-        this.error = err.message
+        this.error = err.message;
       })
-  }
+  },
+
+  methods: {
+    confirmDelete: function() {
+      this.$swal('本当に削除しますか？');
+    },
+  },
 }
 </script>
