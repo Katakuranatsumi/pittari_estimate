@@ -65,7 +65,7 @@ export default {
     },
 
     disableTaskDeleteAciton: function() {
-      if (this.checkedTasks.length !== 0) {
+      if (this.checkedTasks.length === 1) {
         return false
       } else {
         return true
@@ -85,7 +85,13 @@ export default {
 
   methods: {
     confirmDelete: function() {
-      this.$swal('本当に削除しますか？');
+      axios.delete('/tasks/' + this.checkedTasks[0]["id"])
+        .then(() => {
+          this.$swal('タスク見積もりを削除しました');
+        })
+        .catch((err) => {
+          this.error = err.message;
+        })
     },
   },
 }
