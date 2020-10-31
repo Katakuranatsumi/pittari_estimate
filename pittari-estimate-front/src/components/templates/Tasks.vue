@@ -3,7 +3,7 @@
     <h2>タスク見積もり一覧</h2>
     <vue-button
       :disabled="disableTaskDeleteAciton"
-      @click="confirmDelete"
+      @click="taskQuoteDelete"
     >
       <font-awesome-icon icon="trash-alt"/>
     </vue-button>
@@ -84,7 +84,7 @@ export default {
   },
 
   methods: {
-    confirmDelete: function() {
+    taskQuoteDelete: function() {
       axios.delete('/tasks/' + this.checkedTasks[0]["id"])
         .then(async() => {
           await this.$swal('タスク見積もりを削除しました');
