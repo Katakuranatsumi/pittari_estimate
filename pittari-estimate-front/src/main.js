@@ -12,10 +12,16 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 library.add(fas, far, fab);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
 Vue.use(Router)
-Vue.use(VueSweetalert2)
+
+const options = {
+  confirmButtonColor: '#41b882',
+  cancelButtonColor: '#ff7674',
+};
+
+Vue.use(VueSweetalert2, options)
 Vue.config.productionTip = false
+
 
 new Vue({
   el: '#app',
