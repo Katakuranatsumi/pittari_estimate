@@ -21,7 +21,6 @@
           type="checkbox"
           v-model="checkedTasks"
         />
-        <span>CheckedTasks: {{ checkedTasks }}</span>
       </tr>
     </table>
   </div>
