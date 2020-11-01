@@ -23,6 +23,7 @@
         />
       </tr>
     </table>
+    <router-link :to="{ path: '/' }">トップページに戻る</router-link>
   </div>
 </template>
 
