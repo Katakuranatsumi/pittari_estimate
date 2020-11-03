@@ -18,7 +18,7 @@
         <input
           :id="index"
           :value="task"
-          type="checkbox"
+          type="radio"
           v-model="checkedTasks"
         />
       </tr>
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       tasks: null,
-      checkedTasks: []
+      checkedTasks: ''
     }
   },
 
@@ -65,7 +65,7 @@ export default {
     },
 
     disableTaskDeleteAciton: function() {
-      if (this.checkedTasks.length === 1) {
+      if (this.checkedTasks) {
         return false
       } else {
         return true
