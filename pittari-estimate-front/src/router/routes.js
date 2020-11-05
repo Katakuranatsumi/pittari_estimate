@@ -4,6 +4,7 @@ import User from '@/components/templates/User.vue'
 import Tasks from '@/components/templates/Tasks.vue'
 import TaskFormView from '@/components/templates/TaskFormView.vue'
 import TaskDetailView from '@/components/templates/TaskDetailView.vue'
+import EditTaskFormView from '@/components/templates/EditTaskFormView.vue'
 
 export default [{
   path: '/',
@@ -23,4 +24,7 @@ export default [{
 }, {
   path: '/tasks/:taskId',
   component: TaskDetailView
+}, {
+  path: '/tasks/:taskId/edit',
+  component: EditTaskFormView
 }]
