@@ -4,6 +4,11 @@
     <div>タイトル： {{ task["title"] }}</div>
     <div>作成日時：{{ createdTime }}</div>
     <div>詳細：{{ task["detail"] }}</div>
+    <label for="title">タイトル：</label>
+    <input
+       id="title"
+       type="text"
+       v-model="title">
     <router-link :to="{ path: '/tasks/' + this.$route.params.taskId + '/edit' }">
       <font-awesome-icon icon="edit" />
     </router-link>
@@ -18,7 +23,9 @@ export default {
   name: 'TaskDetailView',
   data: function() {
     return {
-      task : ''
+      task : '',
+      title: '',
+      detail: '',
     }
   },
 
@@ -33,6 +40,8 @@ export default {
     axios.get('/tasks/' + this.$route.params.taskId)
       .then((response) => {
         this.task = response.data
+        this.title = this.task["title"]
+        this.detail = this.task["detail"]
       })
       .catch((err) => {
         this.error = err.message
