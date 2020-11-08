@@ -24,7 +24,4 @@ export default [{
 }, {
   path: '/tasks/:taskId',
   component: TaskDetailView
-}, {
-  path: '/tasks/:taskId/edit',
-  component: EditTaskFormView
 }]
