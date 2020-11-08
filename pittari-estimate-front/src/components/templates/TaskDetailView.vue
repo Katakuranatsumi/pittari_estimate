@@ -17,8 +17,15 @@
         <input
           id="detail"
           type="text"
-          v-model="detail"
-          placeholder="例：Railsでログイン機能を実装する">
+          v-model="detail">
+      </div>
+      <div class="form-actions">
+        <vue-button
+          :disabled="disableTaskUpdateAciton"
+          @click="update"
+        >
+          更新
+        </vue-button>
       </div>
     </form>
     <font-awesome-icon icon="edit" />
@@ -28,9 +35,15 @@
 
 <script>
 import axios from '@/plugins/axios'
+import VueButton from '@/components/atoms/Button'
 
 export default {
   name: 'TaskDetailView',
+
+  components: {
+    VueButton
+  },
+
   data: function() {
     return {
       task : '',
@@ -44,6 +57,23 @@ export default {
       const createdTime = new Date(this.task["created_at"]).toLocaleString();
       return createdTime
     },
+  },
+
+  methods: {
+    update: function() {
+      const updateTask = {
+        title: this.title,
+        detail: this.detail
+      }
+      axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
+        .then(() => {
+          this.$router.push({ path: '/tasks' })
+          alert('タスク見積もりを更新しました')
+        })
+        .catch(err => {
+          this.error = err.message
+        })
+    }
   },
 
   mounted() {
