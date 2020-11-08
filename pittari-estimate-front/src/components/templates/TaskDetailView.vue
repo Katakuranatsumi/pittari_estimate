@@ -1,10 +1,12 @@
 <template>
   <div class="task-detail">
-    <h2>タスク見積もり詳細</h2>
-    <div>タイトル： {{ task["title"] }}</div>
-    <div>作成日時：{{ createdTime }}</div>
-    <div>詳細：{{ task["detail"] }}</div>
-    <form>
+    <div v-if="!editable">
+      <h2>タスク見積もり詳細</h2>
+      <div>タイトル： {{ task["title"] }}</div>
+      <div>作成日時：{{ createdTime }}</div>
+      <div>詳細：{{ task["detail"] }}</div>
+    </div>
+    <form v-if="editable">
       <div class="form-item">
         <label for="title">タイトル：</label>
         <input
@@ -26,9 +28,12 @@
         >
           更新
         </vue-button>
+        <vue-button>
+          キャンセル
+        </vue-button>
       </div>
     </form>
-    <font-awesome-icon icon="edit" />
+    <font-awesome-icon icon="edit" @click="isEdit" />
     <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
   </div>
 </template>
@@ -49,6 +54,7 @@ export default {
       task : '',
       title: '',
       detail: '',
+      editable: false
     }
   },
 
@@ -73,6 +79,10 @@ export default {
         .catch(err => {
           this.error = err.message
         })
+    },
+
+    isEdit: function() {
+      this.editable = true;
     }
   },
 
