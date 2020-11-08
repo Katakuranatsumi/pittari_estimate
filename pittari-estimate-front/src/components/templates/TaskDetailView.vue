@@ -4,14 +4,24 @@
     <div>タイトル： {{ task["title"] }}</div>
     <div>作成日時：{{ createdTime }}</div>
     <div>詳細：{{ task["detail"] }}</div>
-    <label for="title">タイトル：</label>
-    <input
-       id="title"
-       type="text"
-       v-model="title">
-    <router-link :to="{ path: '/tasks/' + this.$route.params.taskId + '/edit' }">
-      <font-awesome-icon icon="edit" />
-    </router-link>
+    <form>
+      <div class="form-item">
+        <label for="title">タイトル：</label>
+        <input
+           id="title"
+           type="text"
+           v-model="title">
+      </div>
+      <div>
+        <label for="detail">詳細：</label>
+        <input
+          id="detail"
+          type="text"
+          v-model="detail"
+          placeholder="例：Railsでログイン機能を実装する">
+      </div>
+    </form>
+    <font-awesome-icon icon="edit" />
     <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
   </div>
 </template>
