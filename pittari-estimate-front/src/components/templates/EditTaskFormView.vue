@@ -21,9 +21,11 @@
       >
         更新
       </vue-button>
-      <vue-button>
-        キャンセル
-      </vue-button>
+      <router-link :to="{ path: '/tasks/' + this.$route.params.taskId }">
+        <vue-button>
+          キャンセル
+        </vue-button>
+      </router-link>
     </div>
   </form>
 </template>
