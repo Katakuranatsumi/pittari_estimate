@@ -6,7 +6,7 @@
       <div>作成日時：{{ createdTime }}</div>
       <div>詳細：{{ task["detail"] }}</div>
       <router-link :to="{ path: '/tasks/' + this.$route.params.taskId + '/edit' }">
-        <font-awesome-icon icon="edit"/>
+        編集<font-awesome-icon icon="edit"/>
       </router-link>
       <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
     </div>
