@@ -20,6 +20,7 @@
     </ul>
     <div class="form-actions">
       <vue-button
+        :disabled="disableTaskUpdateAciton"
         @click="update"
       >
         更新
@@ -74,7 +75,7 @@ export default {
       return valid
     },
 
-    disableTaskCreateAciton: function() {
+    disableTaskUpdateAciton: function() {
       // validを使用してログイン処理の可否を判別
       return !this.valid || this.progress
     },
