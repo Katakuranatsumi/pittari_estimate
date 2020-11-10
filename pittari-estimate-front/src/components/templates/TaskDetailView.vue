@@ -5,8 +5,11 @@
       <div>タイトル： {{ task["title"] }}</div>
       <div>作成日時：{{ createdTime }}</div>
       <div>詳細：{{ task["detail"] }}</div>
+      <font-awesome-icon icon="edit" @click="isEdit" />
+      <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
     </div>
     <form v-if="editable">
+      <h2>タスク見積もり詳細編集</h2>
       <div class="form-item">
         <label for="title">タイトル：</label>
         <input
@@ -33,8 +36,6 @@
         </vue-button>
       </div>
     </form>
-    <font-awesome-icon icon="edit" @click="isEdit" />
-    <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
   </div>
 </template>
 
