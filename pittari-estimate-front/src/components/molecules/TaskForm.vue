@@ -29,6 +29,11 @@
       >
         タスク見積登録
       </vue-button>
+      <router-link :to="{ path: '/tasks' }">
+        <vue-button>
+          キャンセル
+        </vue-button>
+      </router-link>
     </div>
   </form>
 </template>
