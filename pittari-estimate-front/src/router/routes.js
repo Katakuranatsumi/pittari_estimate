@@ -19,7 +19,7 @@ export default [{
   path: '/tasks',
   component: Tasks
 }, {
-  path: '/new',
+  path: '/tasks/new',
   component: TaskFormView
 }, {
   path: '/tasks/:taskId',
