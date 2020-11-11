@@ -24,7 +24,6 @@
       </tr>
     </table>
     <router-link :to="{ path: '/tasks/new'}">新規作成<font-awesome-icon icon="pencil-alt"/></router-link>
-    <router-link :to="{ path: '/' }">トップページに戻る</router-link>
   </div>
 </template>
 
