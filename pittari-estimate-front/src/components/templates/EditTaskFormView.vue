@@ -89,7 +89,7 @@ export default {
       }
       axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
         .then(() => {
-          this.$router.push({ path: '/tasks' })
+          this.$router.push({ path: '/' })
           alert('タスク見積もりを更新しました')
         })
         .catch(err => {
