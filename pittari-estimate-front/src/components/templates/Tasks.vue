@@ -86,7 +86,7 @@ export default {
   methods: {
     taskQuoteDelete: function() {
       this.$swal({
-        title: `${this.checkedTasks[0]["title"]}を削除してもよろしいですか？`,
+        title: `${this.checkedTasks["title"]}を削除してもよろしいですか？`,
         type: 'confirm',
         showCloseButton: true,
         showCancelButton: true,
@@ -94,7 +94,7 @@ export default {
       })
       .then((result) => {
         if (result.value) {
-           axios.delete('/tasks/' + this.checkedTasks[0]["id"])
+           axios.delete('/tasks/' + this.checkedTasks["id"])
              .then(async() => {
                await this.$swal('タスク見積もりを削除しました');
                this.$router.go({path: this.$router.currentRoute.path, force: true})
