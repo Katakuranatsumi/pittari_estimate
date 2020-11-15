@@ -76,7 +76,7 @@ export default {
   mounted() {
     axios.get('/tasks')
       .then((response) => {
-        this.tasks = response.data;
+        this.tasks = response.data["tasks"];
       })
       .catch((err) => {
         this.error = err.message;
