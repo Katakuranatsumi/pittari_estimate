@@ -52,7 +52,7 @@ export default {
   mounted() {
     axios.get('/tasks/' + this.$route.params.taskId)
       .then((response) => {
-        this.task = response.data
+        this.task = response.data["task"]
       })
       .catch((err) => {
         this.error = err.message
