@@ -32,23 +32,6 @@ export default {
     },
   },
 
-  methods: {
-    update: function() {
-      const updateTask = {
-        title: this.title,
-        detail: this.detail
-      }
-      axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
-        .then(() => {
-          this.$router.push({ path: '/tasks' })
-          alert('タスク見積もりを更新しました')
-        })
-        .catch(err => {
-          this.error = err.message
-        })
-    },
-  },
-
   mounted() {
     axios.get('/tasks/' + this.$route.params.taskId)
       .then((response) => {
