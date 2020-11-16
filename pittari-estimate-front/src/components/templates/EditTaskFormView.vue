@@ -83,18 +83,31 @@ export default {
 
   methods: {
     update: function() {
-      const updateTask = {
-        title: this.title,
-        detail: this.detail
-      }
-      axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
-        .then(() => {
-          this.$router.push({ path: '/' })
-          alert('タスク見積もりを更新しました')
-        })
-        .catch(err => {
-          this.error = err.message
-        })
+      this.$swal({
+        title: `${this.title}を更新してもよろしいですか？`,
+        type: 'confirm',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+      })
+      .then((result) => {
+        if (result.value) {
+          const updateTask = {
+            title: this.title,
+            detail: this.detail
+          }
+          axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
+            .then(async() => {
+              await this.$swal('タスク見積もりを更新しました')
+              this.$router.push({ path: '/' })
+            })
+            .catch(err => {
+              this.error = err.message
+            })
+        } else {
+          this.$swal('タスク見積もりの更新をキャンセルしました')
+        }
+      })
     },
   },
 
