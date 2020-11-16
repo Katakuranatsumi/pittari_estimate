@@ -87,19 +87,30 @@ export default {
 
   methods: {
     handleClick: function() {
-      this.$nextTick(function() {
-        const newTask = {
-          title: this.title,
-          detail: this.detail
+      this.$swal({
+        title: `${this.title}を登録してもよろしいですか？`,
+        type: 'confirm',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'OK',
+      })
+      .then((result) => {
+        if (result.value) {
+          const newTask = {
+            title: this.title,
+            detail: this.detail
+          }
+          axios.post('/tasks', newTask)
+            .then(async() => {
+              await this.$swal("タスク見積もりを作成しました")
+              this.$router.push({ path: '/' })
+            })
+            .catch(err => {
+              this.error = err.message
+            })
+        } else {
+          this.$swal('タスク見積もりの登録をキャンセルしました')
         }
-        axios.post('/tasks', newTask)
-          .then(() => {
-            this.$router.push({ path: '/' })
-            alert("タスク見積もりを作成しました")
-          })
-          .catch(err => {
-            this.error = err.message
-          })
       })
     },
   },
