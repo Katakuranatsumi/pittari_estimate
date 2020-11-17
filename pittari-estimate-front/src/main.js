@@ -1,5 +1,6 @@
 import App from './App.vue';
 import Vue from 'vue/dist/vue.esm';
+import Vuex from 'vuex'
 import router from './router/index';
 import Router from 'vue-router';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -21,6 +22,7 @@ const options = {
 
 Vue.use(VueSweetalert2, options)
 Vue.config.productionTip = false
+Vue.use(Vuex)
 
 
 new Vue({
