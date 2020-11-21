@@ -40,12 +40,15 @@ export default {
 
   data() {
     return {
-      tasks: this.$store.state.tasks,
       checkedTasks: ''
     }
   },
 
   computed: {
+    tasks () {
+      return this.$store.state.tasks
+    },
+
     createdTime: function() {
       let createdTimes = [];
       for (let i = 0, length = this.tasks.length; i < length; i++) {
