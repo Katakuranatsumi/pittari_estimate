@@ -40,7 +40,7 @@ export default {
 
   data() {
     return {
-      tasks: null,
+      tasks: this.$store.state.tasks,
       checkedTasks: ''
     }
   },
@@ -74,13 +74,7 @@ export default {
   },
 
   mounted() {
-    axios.get('/tasks')
-      .then((response) => {
-        this.tasks = response.data["tasks"];
-      })
-      .catch((err) => {
-        this.error = err.message;
-      })
+    this.$store.commit('getTasks')
   },
 
   methods: {
