@@ -8,7 +8,7 @@
       <router-link :to="{ path: '/tasks/' + this.$route.params.taskId + '/edit' }">
         編集<font-awesome-icon icon="edit"/>
       </router-link>
-      <router-link :to="{ path: '/' }">タスク一覧画面に戻る</router-link>
+      <router-link :to="{ path: '/tasks' }">タスク一覧画面に戻る</router-link>
     </div>
   </div>
 </template>
