@@ -1,8 +1,8 @@
 import Vue from 'vue/dist/vue.esm';
 
 export default {
-  setTasks (state, { item }) {
-    Vue.set(state.items, item)
+  setTasks (state, { data }) {
+    Vue.set(state.tasks, data)
   },
 
   getTasks (state, data) {
