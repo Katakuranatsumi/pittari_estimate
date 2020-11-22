@@ -76,9 +76,6 @@ export default {
     },
   },
 
-  mounted() {
-    this.$store.dispatch('getTasks')
-  },
 
   methods: {
     taskQuoteDelete: function() {
