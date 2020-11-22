@@ -11,6 +11,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import 'es6-promise/auto';
 import store from './store'
+import { sync } from 'vuex-router-sync'
 
 library.add(fas, far, fab);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
@@ -24,6 +25,7 @@ const options = {
 Vue.use(VueSweetalert2, options)
 Vue.config.productionTip = false
 
+sync(store, router)
 
 new Vue({
   el: '#app',
