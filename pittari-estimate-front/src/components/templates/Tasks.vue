@@ -77,7 +77,7 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('getTasks')
+    this.$store.dispatch('getTasks')
   },
 
   methods: {
