@@ -8,9 +8,5 @@
 <script>
 export default {
   name: 'Top',
-
-  mounted() {
-    this.$store.dispatch('getTasks')
-  },
 }
 </script>

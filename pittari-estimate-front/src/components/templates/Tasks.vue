@@ -40,15 +40,22 @@ export default {
 
   data() {
     return {
+      tasks: null,
       checkedTasks: ''
     }
   },
 
-  computed: {
-    tasks () {
-      return this.$store.state.tasks
-    },
+  mounted() {
+    axios.get('/tasks')
+      .then((response) => {
+        this.tasks = response.data["tasks"];
+      })
+      .catch((err) => {
+        this.error = err.message;
+      })
+  },
 
+  computed: {
     createdTime: function() {
       let createdTimes = [];
       for (let i = 0, length = this.tasks.length; i < length; i++) {
@@ -74,10 +81,6 @@ export default {
         return true
       }
     },
-  },
-
-  mounted() {
-    this.$store.dispatch('getTasks')
   },
 
   methods: {
