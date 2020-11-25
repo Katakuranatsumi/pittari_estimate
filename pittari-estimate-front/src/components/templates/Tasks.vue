@@ -1,6 +1,6 @@
 <template>
   <div class="tasks">
-    <h1 class="block">タスク見積もり一覧</h1>
+    <h1 class="title block">タスク見積もり一覧</h1>
     <div class="columns is-centered">
       <table class="table is-hoverable">
         <tr>
