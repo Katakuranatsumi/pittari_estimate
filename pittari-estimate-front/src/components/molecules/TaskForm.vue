@@ -1,39 +1,42 @@
 <template>
   <form>
-    <h2>タスク見積もり登録フォーム</h2>
-    <div class="form-item">
-      <label for="title">タイトル</label>
+    <h2 class="title block">タスク見積もり登録フォーム</h2>
+    <div class="form-item is-centered">
+      <label class="label" for="title">タイトル</label>
       <input
         id="title"
         type="text"
         v-model="title"
         required
-        placeholder="例：ログイン機能の追加">
+        placeholder="例：ログイン機能の追加"
+        class="input column is-one-third is-offset-one-third">
       <ul class="validation-errors">
         <p v-if="!validation.title.required">タイトルが入力されていません。</p>
       </ul>
     </div>
     <div>
-      <label for="detail">詳細</label>
+      <label class="label" for="detail">詳細</label>
       <input
         id="detail"
-        type="text"
+        type="textarea"
         v-model="detail"
         placeholder="例：Railsでログイン機能を実装する"
-      >
+        class="input column is-one-third is-offset-one-third">
     </div>
-    <div class="form-actions">
+    <div class="form-actions mt-5">
+      <router-link
+        :to="{ path: '/tasks' }"
+        class="mr-1">
+        <vue-button>
+          キャンセル
+        </vue-button>
+      </router-link>
       <vue-button
         :disabled="disableTaskCreateAciton"
         @click="handleClick"
       >
         タスク見積登録
       </vue-button>
-      <router-link :to="{ path: '/tasks' }">
-        <vue-button>
-          キャンセル
-        </vue-button>
-      </router-link>
     </div>
   </form>
 </template>
