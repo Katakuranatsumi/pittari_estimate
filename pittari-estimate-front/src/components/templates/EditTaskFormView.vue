@@ -1,31 +1,34 @@
 <template>
   <form>
-    <h2>タスク見積もり編集</h2>
-    <div class="form-item">
-      <label for="title">タイトル：</label>
+    <h2 class="title block">タスク見積もり編集</h2>
+    <div class="form-item  is-centered">
+      <label class="label" for="title">タイトル：</label>
       <input
         id="title"
         type="text"
-        v-model="title">
+        v-model="title"
+        class="input column is-one-third is-offset-one-third">
+      <ul class="validation-errors">
+        <p v-if="!validation.title.required">タイトルが入力されていません。</p>
+      </ul>
     </div>
     <div>
-      <label for="detail">詳細：</label>
+      <label class="label" for="detail">詳細：</label>
       <input
         id="detail"
         type="text"
-        v-model="detail">
+        v-model="detail"
+        class="input column is-one-third is-offset-one-third">
     </div>
-    <ul class="validation-errors">
-      <p v-if="!validation.title.required">タイトルが入力されていません。</p>
-    </ul>
-    <div class="form-actions">
+    <div class="form-actions mt-5">
       <vue-button
         :disabled="disableTaskUpdateAciton"
         @click="update"
-      >
+        class="mr-1">
         更新
       </vue-button>
-      <router-link :to="{ path: '/tasks/' + this.$route.params.taskId }">
+      <router-link
+        :to="{ path: '/tasks/' + this.$route.params.taskId }">
         <vue-button>
           キャンセル
         </vue-button>
