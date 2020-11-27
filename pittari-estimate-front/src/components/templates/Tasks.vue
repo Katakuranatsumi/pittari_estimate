@@ -29,7 +29,10 @@
         </tr>
       </table>
     </div>
-    <router-link :to="{ path: '/tasks/new'}">新規作成<font-awesome-icon icon="pencil-alt"/></router-link>
+    <router-link :to="{ path: '/tasks/new'}"
+      class="button">
+      新規作成<font-awesome-icon icon="pencil-alt"/>
+    </router-link>
   </div>
 </template>
 
