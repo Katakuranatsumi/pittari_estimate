@@ -5,10 +5,13 @@ RUN apt-get update \
     sqlite3 \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/pittari_estimate
-COPY Gemfile* ./
-Run bundle install
-COPY . .
+RUN mkdir /app
+ENV APP_ROOT /app
+WORKDIR $APP_ROOT
 
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+COPY Gemfile $APP_ROOT/Gemfile
+COPY Gemfile.lock $APP_ROOT/Gemfile.lock
+
+RUN bundle install
+
+CMD [ "ruby -v" ]
