@@ -106,7 +106,7 @@ export default {
         if (result.value) {
            axios.delete('/tasks/' + this.checkedTasks["id"])
              .then(async() => {
-               await this.$swal('タスク見積もりを削除しました');
+               await this.$swal(`「${this.checkedTasks["title"]}」を削除しました`);
                this.$router.go({path: this.$router.currentRoute.path, force: true})
              })
              .catch((err) => {
