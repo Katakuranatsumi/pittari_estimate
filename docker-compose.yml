@@ -8,6 +8,8 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - '3000:3000'
+    volumes:
+      - ./:/app:cached
     tty: false
     stdin_open: false
   front:
@@ -18,5 +20,7 @@ services:
       - app
     ports:
       - '8080:8080'
+    volumes:
+      - ./pittari-estimate-front:/app
     tty: false
     stdin_open: false
