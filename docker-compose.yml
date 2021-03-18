@@ -14,7 +14,8 @@ services:
     stdin_open: false
   front:
     container_name: pittari_estimate_front
-    build: ./pittari-estimate-front
+    build:
+      context: ./pittari-estimate-front
     command: yarn serve
     depends_on:
       - app
