@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TaskForm from '@/components/molecules/TaskForm.vue'
+import TaskForm from '../molecules/TaskForm'
 
 export default {
   name: 'TaskFormVue',

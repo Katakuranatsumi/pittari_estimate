@@ -1,63 +1,59 @@
 <template>
   <form>
-    <h2 class="title block">タスク見積もり登録フォーム</h2>
-    <div class="form-item is-centered">
-      <label class="label" for="title">タイトル</label>
+    <h2 class="title block">タスク見積もり編集</h2>
+    <div class="form-item  is-centered">
+      <label class="label" for="title">タイトル：</label>
       <input
         id="title"
         type="text"
         v-model="title"
-        required
-        placeholder="例：ログイン機能の追加"
         class="input column is-one-third is-offset-one-third">
       <ul class="validation-errors">
         <p v-if="!validation.title.required">タイトルが入力されていません。</p>
       </ul>
     </div>
     <div>
-      <label class="label" for="detail">詳細</label>
+      <label class="label" for="detail">詳細：</label>
       <input
         id="detail"
-        type="textarea"
+        type="text"
         v-model="detail"
-        placeholder="例：Railsでログイン機能を実装する"
         class="input column is-one-third is-offset-one-third">
     </div>
     <div class="form-actions mt-5">
-      <router-link
-        :to="{ path: '/tasks' }"
+      <vue-button
+        :disabled="disableTaskUpdateAciton"
+        @click="update"
         class="mr-1">
+        更新
+      </vue-button>
+      <router-link
+        :to="{ path: '/tasks/' + this.$route.params.taskId }">
         <vue-button>
           キャンセル
         </vue-button>
       </router-link>
-      <vue-button
-        :disabled="disableTaskCreateAciton"
-        @click="handleClick"
-      >
-        タスク見積登録
-      </vue-button>
     </div>
   </form>
 </template>
 
 <script>
-import axios from '@/plugins/axios'
-import VueButton from '@/components/atoms/Button'
+import axios from '../../plugins/axios'
+import VueButton from '../atoms/Button'
 const required = val => !!val.trim()
 
 export default {
-  name: 'TaskForm',
+  name: 'EditTaskFormView',
 
   components: {
-    VueButton,
+    VueButton
   },
 
-  data () {
+  data: function() {
     return {
+      task : '',
       title: '',
-      detail: '',
-      progress: false
+      detail: ''
     }
   },
 
@@ -82,16 +78,16 @@ export default {
       return valid
     },
 
-    disableTaskCreateAciton: function() {
+    disableTaskUpdateAciton: function() {
       // validを使用してログイン処理の可否を判別
       return !this.valid || this.progress
     },
   },
 
   methods: {
-    handleClick: function() {
+    update: function() {
       this.$swal({
-        title: `${this.title}を登録してもよろしいですか？`,
+        title: `${this.title}を更新してもよろしいですか？`,
         type: 'confirm',
         showCloseButton: true,
         showCancelButton: true,
@@ -99,31 +95,35 @@ export default {
       })
       .then((result) => {
         if (result.value) {
-          const newTask = {
+          const updateTask = {
             title: this.title,
             detail: this.detail
           }
-          axios.post('/tasks', newTask)
+          axios.patch('/tasks/' + this.$route.params.taskId, updateTask)
             .then(async() => {
-              await this.$swal("タスク見積もりを作成しました")
+              await this.$swal('タスク見積もりを更新しました')
               this.$router.push({ path: '/' })
             })
             .catch(err => {
               this.error = err.message
             })
         } else {
-          this.$swal('タスク見積もりの登録をキャンセルしました')
+          this.$swal('タスク見積もりの更新をキャンセルしました')
         }
       })
     },
   },
+
+  mounted() {
+    axios.get('/tasks/' + this.$route.params.taskId)
+      .then((response) => {
+        this.task = response.data["task"]
+        this.title = this.task["title"]
+        this.detail = this.task["detail"]
+      })
+      .catch((err) => {
+        this.error = err.message
+      })
+  },
 }
 </script>
-
-<style>
-
-.validation-errors {
-  height: 32px;
-  color:orangered;
-}
-</style>

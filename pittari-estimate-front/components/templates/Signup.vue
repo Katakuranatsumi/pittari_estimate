@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import firebase from '@/plugins/firebase'
-import axios from '@/plugins/axios'
+import firebase from '../../plugins/firebase'
+import axios from '../../plugins/axios'
 
 export default {
   name: 'Signup',

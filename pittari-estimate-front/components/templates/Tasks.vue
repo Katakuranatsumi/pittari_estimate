@@ -38,8 +38,8 @@
 
 <script>
 import 'bulma/css/bulma.css';
-import axios from '@/plugins/axios';
-import VueButton from '@/components/atoms/Button';
+import axios from '../../plugins/axios';
+import VueButton from '../atoms/Button';
 
 export default {
   name: 'Tasks',
