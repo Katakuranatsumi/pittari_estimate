@@ -1,6 +1,6 @@
 import App from './App.vue';
 import Vue from 'vue/dist/vue.esm';
-import router from './router/index';
+import router from '../router/index';
 import Router from 'vue-router';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -10,7 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import 'es6-promise/auto';
-import store from './store'
+import store from '../store'
 import { sync } from 'vuex-router-sync'
 
 library.add(fas, far, fab);
